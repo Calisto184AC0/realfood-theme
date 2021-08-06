@@ -1,2 +1,49 @@
 @use '../abstracts' as *;
 
+.irf-section-home-init {
+    height: calc(100vh - var(--irf-header-height));
+
+    .irf-pilar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        height: 100%;
+
+        &:first-of-type { margin-left: calc(0px - var(--irf-lateral-space)); }
+        &:last-of-type { margin-right: calc(0px - var(--irf-lateral-space)); }
+
+        &:nth-of-type(1) { background-image: url('../img/pilar1.png'); }
+        &:nth-of-type(2) { background-image: url('../img/pilar2.png'); }
+        &:nth-of-type(3) { background-image: url('../img/pilar3.png'); }
+
+        &:not(:last-child) { border-right: 1px solid var(--irf-gray); }
+        
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color: rgba($color: #000000, $alpha: 0.15);
+        background-blend-mode: color;
+
+        &:hover {
+
+
+            h2 { 
+                font-size: 5rem;
+                color: var(--irf-white);
+            }
+        } 
+
+        cursor: pointer;
+
+        h2 {
+            color: var(--irf-gray);
+            font-family: 'Barlow';
+            font-size: 4.5rem;
+            line-height: 145px;
+            font-weight: 900;
+            font-stretch: condensed;
+
+            transition: font-size ease .4s, color ease .4s;
+        }
+    }
+}
