@@ -1,0 +1,177 @@
+@use '../abstracts' as *;
+
+.#{$prefix}-footer {
+
+    .irf-section-12 {
+        width: 100vw !important;
+        margin: 0 calc(0px - var(--irf-lateral-space)) !important;
+        padding: 0 var(--irf-lateral-space);
+    }
+
+    .irf-footer-links {
+        border-bottom: 1px solid var(--irf-gray);
+        padding-top: 7.813rem;
+        padding-bottom: 7.438rem;
+
+        grid-template-areas: 
+            "links      links   .       .       news    news    news    news    .    info    info    ."
+            "links      links   .       .       .       .       .       .       .    rrss    rrss    .";
+        row-gap: 5rem;
+
+        .irf-footer-menu {
+            grid-area: links;
+
+            li {
+                &:not(:last-child) {
+                    margin-bottom: .563rem;
+                }
+
+                a {
+                    color: var(--irf-black);
+                    font-family: 'Barlow';
+                    font-size: 2.625rem;
+                    font-weight: 900;
+                    font-stretch: condensed;
+                    line-height: 39px;
+                }
+
+                @for $i from 1 through length($dot-colors) {
+                    $color: nth($dot-colors, $i);
+                    &:nth-of-type(#{$i}) a:hover {color: var(--irf-#{$color});}
+                }
+            }
+        }
+
+        .irf-footer-newsletter {
+            grid-area: news;
+
+            input {
+                width: 100%;
+                outline: none;
+                border: none;
+                border-bottom: 1px solid var(--irf-gray);
+                margin-bottom: 2rem;
+
+                font-size: 1.25rem;
+                line-height: 34px;
+            }
+
+            p {
+                font-size: 1rem;
+                line-height: 24px;
+            }
+        }
+
+        .irf-footer-info {
+            grid-area: info;
+
+            p {
+                font-size: 1.25rem;
+                line-height: 32px;
+            }
+        }
+
+        .irf-footer-rrss {
+            grid-area: rrss;
+
+            li {
+                a {
+                    display: grid;
+                    grid-template-columns: 1.375rem auto;
+                    align-items: center;
+                    justify-content: start;
+                    column-gap: 1.75rem;
+
+                    color: var(--irf-black);
+                    font-family: 'LiebeRuth';
+                    font-size: 1.25rem;
+                    font-weight: 400;
+                    line-height: 39px;
+                }
+
+                &:not(:last-child) {
+                    margin-bottom: 1.188rem;
+                }
+            }
+        }
+    }
+
+    .irf-footer-more-info {
+        border-bottom: 1px solid var(--irf-gray);
+        padding-top: 1.875rem;
+        padding-bottom: 3.25rem;
+
+        grid-template-areas: 
+            "legal      legal       legal       legal       legal       .       .       .       .       by      by      .";
+
+        .irf-footer-legal {
+            grid-area: legal;
+
+            display: flex;
+
+            li {
+                margin-right: 1rem;
+
+                a {
+                    color: var(--irf-black);
+                    font-size: 1.125rem;
+                    line-height: 34px;
+                }
+            }
+        }
+
+        .irf-footer-siteby {
+            grid-area: by;
+            justify-self: start;
+
+            color: var(--irf-black);
+            font-size: 1.125rem;
+            line-height: 34px;
+        }
+    }
+
+    .irf-footer-cta-container {
+        padding: 0 !important;
+
+        background-color: var(--irf-yellow);
+
+
+        grid-template-areas: 
+            "cta    cta     cta     cta     cta    .    img     img    img    img    img    img";
+        
+        .irf-footer-cta {
+            grid-area: cta;
+
+            padding-left: var(--irf-lateral-space);
+
+            h2 {
+                margin-top: 3.75rem;
+
+                font-family: 'Barlow';
+                font-size: 3.75rem;
+                line-height: 64px;
+                font-weight: 900;
+                font-stretch: condensed;
+            }
+
+            p {
+                margin-top: 2.25rem;
+                font-size: 1.375rem;
+                line-height: 34px;
+            }
+
+            a {
+                display: block;
+                margin-top: 3.563rem;
+            }
+        }
+
+        .irf-footer-cta-img {
+            grid-area: img;
+
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    
+}
