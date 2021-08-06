@@ -1,0 +1,30 @@
+@use '../abstracts' as *;
+
+%section {
+    display: grid;
+    justify-items: stretch;
+    align-items: start;
+    width: 100%;
+    position: relative;
+}
+
+.#{$prefix}-container {
+    padding: 0 var(--#{$prefix}-lateral-space);
+
+    .#{$prefix}-section-3 {
+        @extend %section;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .#{$prefix}-section-10 {
+        @extend %section;
+        grid-template-columns: repeat(10, 1fr);
+    }
+    
+    .#{$prefix}-section-12 {
+        @extend %section;
+        grid-template-columns: repeat(12, 1fr);
+        column-gap: var(--#{$prefix}-column-gap);
+    }
+}
+

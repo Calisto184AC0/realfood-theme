@@ -1,0 +1,118 @@
+@use '../abstracts' as *;
+
+.#{$prefix}-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 1.563rem var(--irf-lateral-space);
+    border-bottom: 1px solid var(--irf-gray);
+    width: 100%;
+    height: var(--irf-header-height);
+
+    .irf-header-wrap {
+        display: flex;
+        align-items: center;
+
+        .irf-logo-2 {
+            width: 10.75rem;
+            margin-right: 2.5rem;
+        }
+
+        #irf-open-menu {
+            cursor: pointer;
+            width: 2.375rem;
+        }
+    }
+
+    .irf-nav {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+
+        display: grid;
+        grid-template-rows: var(--irf-header-height) 1fr auto;
+
+        width: 22.875rem;
+        height: 100vh;
+
+        background-color: var(--irf-white);
+        transform-origin: right;
+        transform: translate(100%);
+        transition: transform ease-in-out .3s;
+
+        .irf-nav-close-menu-container {
+            display: flex;
+            justify-content: end;
+            align-items: center;
+
+            border-left: 1px solid var(--irf-gray);
+            border-bottom: 1px solid var(--irf-gray);
+            padding-right: var(--irf-lateral-space);
+
+            #irf-close-menu {
+                cursor: pointer;
+            }
+        }
+
+        .irf-nav-menu {
+            border-left: 1px solid var(--irf-gray);
+            border-bottom: 1px solid var(--irf-gray);
+
+            a {
+                padding: .625rem 1rem 0.875rem;
+                border-bottom: 1px solid var(--irf-gray);
+
+                display: flex;
+                align-items: center;
+                justify-content: stretch;
+
+                color: var(--irf-black);
+                font-family: 'Barlow';
+                font-size: 2rem;
+                font-weight: 900;
+                font-stretch: condensed;
+                line-height: 39px;
+
+                &::before {
+                    content: '';
+                    width: 2rem;
+                    height: 2rem;
+                    border-radius: 40rem;
+                    margin-right: 1.375rem;
+                }
+
+                $dot-colors: ('l-blue', 'green', 'yellow', 'orange', 'red', 'garnet');
+                @for $i from 1 through length($dot-colors) {
+                    $color: nth($dot-colors, $i);
+                    &:nth-of-type(#{$i})::before {background-color: var(--irf-#{$color});}
+                }
+            }
+        }
+
+        .irf-nav-rrss {
+            border-left: 1px solid var(--irf-gray);
+            border-bottom: 1px solid var(--irf-gray);
+            
+            a {
+                padding: .625rem 0 0.875rem;
+                border-bottom: 1px solid var(--irf-gray);
+                
+                display: grid;
+                align-items: center;
+                grid-template-columns: 4.125rem 1fr;
+
+                color: var(--irf-black);
+                font-family: 'LiebeRuth';
+                font-size: 1rem;
+                font-weight: 400;
+                line-height: 39px;
+
+                img {
+                    justify-self: center;
+                }
+            }
+        }
+    }
+}

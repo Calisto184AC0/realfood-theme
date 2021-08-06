@@ -1,0 +1,44 @@
+/* #region Init */
+
+$prefix: 'irf';
+
+$init: (
+    lateral-space: 68px, // para las columnas
+    column-gap: 16px,
+    header-height: 8.75rem
+);
+
+
+
+/* #endregion Init */
+
+/* #region Colores */
+
+$colors: (
+    white: #ffffff,
+    gray: #707070,
+    d-gray: #4b4b4b,
+    black: #000000,
+    red: #e6471a,
+    orange: #ef8407,
+    yellow: #f0c600,
+    green: #81a512,
+    d-green: #4a7518,
+    l-blue: #cae4f0,
+    garnet: #610819
+);
+
+/* #endregion Colores */
+
+/* #region Fuentes */
+
+$fonts: ( // font family, weight, normal o italic, stretch (normal o condensed), ubi de la fuente
+    ('LiebeRuth', 300, normal, normal, 'LiebeRuth-Light.otf'),
+    ('LiebeRuth', 400, normal, normal, 'LiebeRuth.otf'),
+    ('LiebeRuth', 500, normal, normal, 'LiebeRuth Medium.otf'),
+    ('LiebeRuth', 700, normal, normal, 'LiebeRuth-Bold.otf'),
+    ('Barlow', 900, normal, condensed, 'BarlowCondensed-Black.ttf'),
+    ('Barlow', 900, italic, condensed, 'BarlowCondensed-BlackItalic.ttf')
+)
+
+/* #endregion Fuentes */
