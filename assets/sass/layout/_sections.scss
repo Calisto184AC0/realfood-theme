@@ -1,5 +1,7 @@
 @use '../abstracts' as *;
 
+/* #region HOME */
+
 .irf-section-home-init {
     height: calc(100vh - var(--irf-header-height));
 
@@ -24,26 +26,51 @@
         background-color: rgba($color: #000000, $alpha: 0.15);
         background-blend-mode: color;
 
-        &:hover {
-
-
-            h2 { 
-                font-size: 5rem;
-                color: var(--irf-white);
-            }
-        } 
-
         cursor: pointer;
 
         h2 {
-            color: var(--irf-gray);
+            font-size: 5rem;
+            color: var(--irf-white);
             font-family: 'Barlow';
-            font-size: 4.5rem;
             line-height: 145px;
             font-weight: 900;
             font-stretch: condensed;
-
-            transition: font-size ease .4s, color ease .4s;
         }
     }
 }
+
+.irf-section-home-articulos-titulo {
+    grid-template-areas: "title title title";
+}
+
+.irf-section-home-articulos-img {
+    img {
+        object-fit: cover;
+        border-left: 1px solid var(--irf-gray);
+        &:last-of-type { border-right: 1px solid var(--irf-gray); }
+    }
+}
+
+.irf-section-home-articulos-text {
+    .irf-articulo-text-container {
+        border-left: 1px solid var(--irf-gray);
+        padding: 1.875rem 1.875rem 7.188rem;
+        &:last-of-type { border-right: 1px solid var(--irf-gray); }
+
+        .irf-articulo-title {
+            font-size: 2rem;
+            font-family: 'Barlow';
+            line-height: 39px;
+            font-weight: 900;
+            font-stretch: condensed;
+
+            margin-bottom: 1.313rem;
+        }
+    }
+}
+
+/* #endregion HOME */
+
+/* #region TERRITORIOS */
+
+/* #
