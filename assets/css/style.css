@@ -145,15 +145,9 @@ input, button, textarea, select {
   font-stretch: normal;
 }
 
-.irf-footer .irf-section-12 {
-  width: 100vw !important;
-  margin: 0 calc(0px - var(--irf-lateral-space)) !important;
-  padding: 0 var(--irf-lateral-space);
-}
 .irf-footer .irf-footer-links {
-  border-bottom: 1px solid var(--irf-gray);
-  padding-top: 7.813rem;
-  padding-bottom: 7.438rem;
+  padding-top: 7.813rem !important;
+  padding-bottom: 7.438rem !important;
   grid-template-areas: "links      links   .       .       news    news    news    news    .    info    info    ." "links      links   .       .       .       .       .       .       .    rrss    rrss    .";
   row-gap: 5rem;
 }
@@ -231,9 +225,8 @@ input, button, textarea, select {
   margin-bottom: 1.188rem;
 }
 .irf-footer .irf-footer-more-info {
-  border-bottom: 1px solid var(--irf-gray);
-  padding-top: 1.875rem;
-  padding-bottom: 3.25rem;
+  padding-top: 1.875rem !important;
+  padding-bottom: 3.25rem !important;
   grid-template-areas: "legal      legal       legal       legal       legal       .       .       .       .       by      by      .";
 }
 .irf-footer .irf-footer-more-info .irf-footer-legal {
@@ -397,19 +390,21 @@ input, button, textarea, select {
   border-bottom: 1px solid var(--irf-gray);
 }
 
-.irf-container .irf-section-12, .irf-container .irf-section-10, .irf-container .irf-section-3 {
+.irf-container .irf-section-12, .irf-container .irf-section-10, .irf-container .irf-section-5, .irf-container .irf-section-3 {
+  padding: 0 var(--irf-lateral-space);
+  border-bottom: 1px solid var(--irf-gray);
   display: grid;
   justify-items: stretch;
-  align-items: start;
+  align-items: stretch;
   width: 100%;
   position: relative;
 }
 
-.irf-container {
-  padding: 0 var(--irf-lateral-space);
-}
 .irf-container .irf-section-3 {
   grid-template-columns: repeat(3, 1fr);
+}
+.irf-container .irf-section-5 {
+  grid-template-columns: repeat(5, 1fr);
 }
 .irf-container .irf-section-10 {
   grid-template-columns: repeat(10, 1fr);
@@ -418,7 +413,132 @@ input, button, textarea, select {
   grid-template-columns: repeat(12, 1fr);
   column-gap: var(--irf-column-gap);
 }
+.irf-container .irf-section-init {
+  min-height: calc(100vh - var(--irf-header-height));
+  max-height: calc(100vh - var(--irf-header-height));
+  grid-template-areas: "left left left left left left right right right right right right";
+}
+.irf-container .irf-section-init .irf-wrap-right {
+  min-height: calc(100vh - var(--irf-header-height));
+  max-height: calc(100vh - var(--irf-header-height));
+  margin-right: calc(0px - var(--irf-lateral-space));
+  border-left: 1px solid var(--irf-gray);
+  grid-area: right;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr auto;
+  align-items: stretch;
+}
+.irf-container .irf-section-init .irf-wrap-right img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.irf-container .irf-section-init .irf-wrap-right a {
+  min-height: 100%;
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+.irf-container .irf-section-init .irf-wrap-right a.fade {
+  opacity: 0;
+}
+.irf-container .irf-section-init .irf-wrap-right .irf-carousel-controller-container {
+  padding: 2.188rem var(--irf-lateral-space) 2.188rem 1.813rem;
+  border-top: 1px solid var(--irf-gray);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.irf-container .irf-section-init .irf-wrap-right .irf-carousel-controller-container p {
+  font-size: 24px;
+  line-height: 34px;
+}
+.irf-container .irf-section-init .irf-wrap-right .irf-carousel-controller-container .irf-carousel-controller #irf_left {
+  margin-right: 1rem;
+}
+.irf-container .irf-section-init .irf-wrap-right .irf-carousel-controller-container .irf-carousel-controller #irf_left, .irf-container .irf-section-init .irf-wrap-right .irf-carousel-controller-container .irf-carousel-controller #irf_right {
+  cursor: pointer;
+}
+.irf-container .irf-section-init .irf-wrap-right .irf-carousel-controller-container .irf-carousel-controller #irf_left .orange, .irf-container .irf-section-init .irf-wrap-right .irf-carousel-controller-container .irf-carousel-controller #irf_right .orange {
+  fill: var(--irf-orange);
+}
+.irf-container .irf-section-init .irf-wrap-right .irf-carousel-controller-container .irf-carousel-controller #irf_left .yellow, .irf-container .irf-section-init .irf-wrap-right .irf-carousel-controller-container .irf-carousel-controller #irf_right .yellow {
+  fill: var(--irf-yellow);
+}
+.irf-container .irf-section-init .irf-wrap-right .irf-carousel-controller-container .irf-carousel-controller #irf_left .red, .irf-container .irf-section-init .irf-wrap-right .irf-carousel-controller-container .irf-carousel-controller #irf_right .red {
+  fill: var(--irf-red);
+}
+.irf-container .irf-section-init .irf-wrap-left {
+  grid-area: left;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: auto 1fr auto;
+  column-gap: var(--irf-column-gap);
+  align-items: flex-start;
+  grid-template-areas: "title title title title title ." "descr descr descr descr .     ." "info  info  info  info  info  info";
+}
+.irf-container .irf-section-init .irf-wrap-left .irf-section-title {
+  margin-bottom: 2.625rem;
+}
+.irf-container .irf-section-init .irf-wrap-left .irf-info {
+  grid-area: info;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  column-gap: var(--irf-column-gap);
+  border-top: 1px solid var(--irf-gray);
+  margin-left: calc(0px - var(--irf-lateral-space));
+  margin-right: calc(0px - var(--irf-column-gap));
+  padding: 0 var(--irf-column-gap) 0 var(--irf-lateral-space);
+  grid-template-areas: "escudo escudo rrss rrss rrss rrss";
+}
+.irf-container .irf-section-init .irf-wrap-left .irf-info .irf-escudo {
+  grid-area: escudo;
+  padding: 1.25rem;
+  border-right: 1px solid var(--irf-gray);
+  border-left: 1px solid var(--irf-gray);
+  justify-self: stretch;
+  align-self: stretch;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.irf-container .irf-section-init .irf-wrap-left .irf-info .irf-rrss {
+  grid-area: rrss;
+  display: flex;
+  flex-direction: column;
+  margin: 0 calc(0px - var(--irf-column-gap));
+  max-height: 14rem;
+  overflow-y: auto;
+}
+.irf-container .irf-section-init .irf-wrap-left .irf-info .irf-rrss a {
+  color: var(--irf-black);
+  padding: 0.625rem var(--irf-column-gap);
+}
+.irf-container .irf-section-init .irf-wrap-left .irf-info .irf-rrss a:not(:last-child) {
+  border-bottom: 1px solid var(--irf-gray);
+}
+.irf-container .irf-section-titulo {
+  grid-template-areas: "title title title";
+}
+.irf-container .irf-section-cuadrados div {
+  border-left: 1px solid var(--irf-gray);
+}
+.irf-container .irf-section-cuadrados div:last-of-type {
+  border-right: 1px solid var(--irf-gray);
+}
+.irf-container .irf-section-cuadrados div img {
+  height: 100%;
+}
 
+.irf-section-title, .irf-section-subtitle, .irf-description {
+  grid-area: title;
+}
+
+.irf-description {
+  grid-area: descr;
+}
+
+/* #region HOME */
 .irf-section-home-init {
   height: calc(100vh - var(--irf-header-height));
 }
@@ -451,18 +571,41 @@ input, button, textarea, select {
 .irf-section-home-init .irf-pilar:not(:last-child) {
   border-right: 1px solid var(--irf-gray);
 }
-.irf-section-home-init .irf-pilar:hover h2 {
+.irf-section-home-init .irf-pilar h2 {
   font-size: 5rem;
   color: var(--irf-white);
-}
-.irf-section-home-init .irf-pilar h2 {
-  color: var(--irf-gray);
   font-family: "Barlow";
-  font-size: 4.5rem;
   line-height: 145px;
   font-weight: 900;
   font-stretch: condensed;
-  transition: font-size ease 0.4s, color ease 0.4s;
 }
+
+.irf-section-home-articulos-img img {
+  object-fit: cover;
+  border-left: 1px solid var(--irf-gray);
+}
+.irf-section-home-articulos-img img:last-of-type {
+  border-right: 1px solid var(--irf-gray);
+}
+
+.irf-section-home-articulos-text .irf-articulo-text-container {
+  border-left: 1px solid var(--irf-gray);
+  padding: 1.875rem 1.875rem 7.188rem;
+}
+.irf-section-home-articulos-text .irf-articulo-text-container:last-of-type {
+  border-right: 1px solid var(--irf-gray);
+}
+.irf-section-home-articulos-text .irf-articulo-text-container .irf-articulo-title {
+  font-size: 2rem;
+  font-family: "Barlow";
+  line-height: 39px;
+  font-weight: 900;
+  font-stretch: condensed;
+  margin-bottom: 1.313rem;
+}
+
+/* #endregion HOME */
+/* #region TERRITORIOS */
+/* #endregion TERRITORIOS */
 
 /*# sourceMappingURL=style.css.map */

@@ -2,16 +2,15 @@
 
 .#{$prefix}-footer {
 
-    .irf-section-12 {
-        width: 100vw !important;
-        margin: 0 calc(0px - var(--irf-lateral-space)) !important;
-        padding: 0 var(--irf-lateral-space);
-    }
+    // .irf-section-12 {
+    //     width: 100vw !important;
+    //     margin: 0 calc(0px - var(--irf-lateral-space)) !important;
+    //     padding: 0 var(--irf-lateral-space);
+    // }
 
     .irf-footer-links {
-        border-bottom: 1px solid var(--irf-gray);
-        padding-top: 7.813rem;
-        padding-bottom: 7.438rem;
+        padding-top: 7.813rem !important;
+        padding-bottom: 7.438rem !important;
 
         grid-template-areas: 
             "links      links   .       .       news    news    news    news    .    info    info    ."
@@ -97,9 +96,8 @@
     }
 
     .irf-footer-more-info {
-        border-bottom: 1px solid var(--irf-gray);
-        padding-top: 1.875rem;
-        padding-bottom: 3.25rem;
+        padding-top: 1.875rem !important;
+        padding-bottom: 3.25rem !important;
 
         grid-template-areas: 
             "legal      legal       legal       legal       legal       .       .       .       .       by      by      .";
