@@ -15,9 +15,9 @@
         &:first-of-type { margin-left: calc(0px - var(--irf-lateral-space)); }
         &:last-of-type { margin-right: calc(0px - var(--irf-lateral-space)); }
 
-        &:nth-of-type(1) { background-image: url('../img/pilar1.png'); }
-        &:nth-of-type(2) { background-image: url('../img/pilar2.png'); }
-        &:nth-of-type(3) { background-image: url('../img/pilar3.png'); }
+        //&:nth-of-type(1) { background-image: url('../img/pilar1.png'); }
+        //&:nth-of-type(2) { background-image: url('../img/pilar2.png'); }
+        //&:nth-of-type(3) { background-image: url('../img/pilar3.png'); }
 
         &:not(:last-child) { border-right: 1px solid var(--irf-gray); }
         
@@ -40,7 +40,9 @@
 }
 
 .irf-section-home-articulos-img {
-    img {
+    img, div {
+        width: 100%;
+        height: 530px;
         object-fit: cover;
         border-left: 1px solid var(--irf-gray);
         &:last-of-type { border-right: 1px solid var(--irf-gray); }
@@ -61,14 +63,47 @@
             font-stretch: condensed;
 
             margin-bottom: 1.313rem;
+
+            a { color: var(--irf-black); }
         }
     }
 }
 
 /* #endregion HOME */
 
-/* #region TERRITORIOS */
+/* #region PRODUCTOS */
 
+.irf-section-receta {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
 
+    img { grid-area: side1; object-fit: cover; }
+    .irf-receta-pasos {
+        grid-area: side2;
 
-/* #endregion TERRITORIOS */
+        padding: 4.75rem 0;
+
+        .irf-receta-title {
+            font-family: 'Barlow';
+            font-size: 2rem;
+            line-height: 39px;
+            font-weight: 900;
+            font-stretch: condensed;
+            margin-bottom: .375rem;
+        }
+
+        .irf-receta-subtitle { margin-bottom: 3rem; }
+        .irf-receta-ingredientes-title { margin-bottom: 2rem; }
+        .irf-receta-ingredientes-lista  {
+            margin-bottom: 2rem;
+
+            li {
+                margin-bottom: .625rem;
+                margin-top: .813rem;
+                border-top: 1px solid var(--irf-gray);
+            }
+        }
+    }
+}
+
+/* #endregion PRODUCTOS */

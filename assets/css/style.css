@@ -221,6 +221,9 @@ input, button, textarea, select {
   font-weight: 400;
   line-height: 39px;
 }
+.irf-footer .irf-footer-links .irf-footer-rrss li a > * {
+  padding: 0 !important;
+}
 .irf-footer .irf-footer-links .irf-footer-rrss li:not(:last-child) {
   margin-bottom: 1.188rem;
 }
@@ -271,7 +274,7 @@ input, button, textarea, select {
   line-height: 34px;
 }
 .irf-footer .irf-footer-cta-container .irf-footer-cta a {
-  display: block;
+  display: inline-block;
   margin-top: 3.563rem;
 }
 .irf-footer .irf-footer-cta-container .irf-footer-cta-img {
@@ -382,6 +385,9 @@ input, button, textarea, select {
   font-size: 1rem;
   font-weight: 400;
   line-height: 39px;
+}
+.irf-header .irf-nav .irf-nav-rrss a > * {
+  padding: 0 !important;
 }
 .irf-header .irf-nav .irf-nav-rrss a img {
   justify-self: center;
@@ -520,14 +526,118 @@ input, button, textarea, select {
 .irf-container .irf-section-titulo {
   grid-template-areas: "title title title";
 }
+.irf-container .irf-section-2-sides {
+  padding-top: 5.438rem;
+  padding-bottom: 6.438rem;
+  grid-template-areas: "side1 side1 side1 side1 side1 . side2 side2 side2 side2 side2 .";
+}
+.irf-container .irf-section-2-sides .irf-section-title {
+  grid-area: side1;
+  line-height: 91px;
+}
+.irf-container .irf-section-2-sides .irf-section-title + .irf-description {
+  grid-area: side2;
+}
+.irf-container .irf-section-2-sides .irf-description:first-child {
+  grid-area: side1;
+}
+.irf-container .irf-section-2-sides .irf-description:nth-child(2) {
+  grid-area: side2;
+}
 .irf-container .irf-section-cuadrados div {
   border-left: 1px solid var(--irf-gray);
 }
 .irf-container .irf-section-cuadrados div:last-of-type {
   border-right: 1px solid var(--irf-gray);
 }
+.irf-container .irf-section-cuadrados div a {
+  display: block;
+  width: 100%;
+  height: 335px;
+  background-color: gray;
+  position: relative;
+}
+.irf-container .irf-section-cuadrados div a img {
+  position: absolute;
+  left: 0;
+  transition: opacity 0.4s ease-in-out;
+}
+.irf-container .irf-section-cuadrados div a img.irf-top-img:hover {
+  opacity: 0;
+}
+.irf-container .irf-section-cuadrados div a img.irf-bottom-img {
+  width: 200px;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 .irf-container .irf-section-cuadrados div img {
   height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.irf-container .irf-section-ruta {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 var(--irf-lateral-space);
+  border-bottom: 1px solid var(--irf-gray);
+  justify-items: stretch;
+  align-items: stretch;
+  width: 100%;
+  position: relative;
+}
+.irf-container .irf-section-ruta .irf-ruta-dia {
+  width: 50%;
+  border-left: 1px solid var(--irf-gray);
+  border-bottom: 1px solid var(--irf-gray);
+  padding: 5.75rem 0 7.125rem;
+}
+.irf-container .irf-section-ruta .irf-ruta-dia .irf-section-subtitle {
+  width: 27.125rem !important;
+  margin: 0 auto;
+}
+.irf-container .irf-section-ruta .irf-ruta-dia .irf-ruta-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+.irf-container .irf-section-ruta .irf-ruta-dia .irf-ruta-section > * {
+  max-width: 27.125rem;
+  width: 100%;
+}
+.irf-container .irf-section-ruta .irf-ruta-dia .irf-ruta-section img {
+  height: auto;
+  width: 100%;
+  object-fit: contain;
+  margin-bottom: 0.625rem;
+}
+.irf-container .irf-section-ruta .irf-ruta-dia .irf-ruta-section .irf-ruta-section-title {
+  font-family: "Barlow";
+  font-size: 3rem;
+  line-height: 39px;
+  font-weight: 900;
+  font-stretch: condensed;
+  margin-bottom: 0.875rem;
+}
+.irf-container .irf-section-ruta .irf-ruta-dia .irf-ruta-section::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 8.375rem;
+  border-top: 1px solid var(--irf-gray);
+}
+.irf-container .irf-section-ruta .irf-ruta-dia > *:not(:last-child) {
+  margin-bottom: 5.75rem;
+}
+.irf-container .irf-section-ruta .irf-ruta-dia:nth-child(2n) {
+  border-right: 1px solid var(--irf-gray);
+}
+.irf-container .irf-section-ruta .irf-ruta-dia:nth-last-child(1), .irf-container .irf-section-ruta .irf-ruta-dia:nth-last-child(2) {
+  border-bottom: none;
 }
 
 .irf-section-title, .irf-section-subtitle, .irf-description {
@@ -559,15 +669,6 @@ input, button, textarea, select {
 .irf-section-home-init .irf-pilar:last-of-type {
   margin-right: calc(0px - var(--irf-lateral-space));
 }
-.irf-section-home-init .irf-pilar:nth-of-type(1) {
-  background-image: url("../img/pilar1.png");
-}
-.irf-section-home-init .irf-pilar:nth-of-type(2) {
-  background-image: url("../img/pilar2.png");
-}
-.irf-section-home-init .irf-pilar:nth-of-type(3) {
-  background-image: url("../img/pilar3.png");
-}
 .irf-section-home-init .irf-pilar:not(:last-child) {
   border-right: 1px solid var(--irf-gray);
 }
@@ -580,11 +681,13 @@ input, button, textarea, select {
   font-stretch: condensed;
 }
 
-.irf-section-home-articulos-img img {
+.irf-section-home-articulos-img img, .irf-section-home-articulos-img div {
+  width: 100%;
+  height: 530px;
   object-fit: cover;
   border-left: 1px solid var(--irf-gray);
 }
-.irf-section-home-articulos-img img:last-of-type {
+.irf-section-home-articulos-img img:last-of-type, .irf-section-home-articulos-img div:last-of-type {
   border-right: 1px solid var(--irf-gray);
 }
 
@@ -603,9 +706,47 @@ input, button, textarea, select {
   font-stretch: condensed;
   margin-bottom: 1.313rem;
 }
+.irf-section-home-articulos-text .irf-articulo-text-container .irf-articulo-title a {
+  color: var(--irf-black);
+}
 
 /* #endregion HOME */
-/* #region TERRITORIOS */
-/* #endregion TERRITORIOS */
+/* #region PRODUCTOS */
+.irf-section-receta {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+.irf-section-receta img {
+  grid-area: side1;
+  object-fit: cover;
+}
+.irf-section-receta .irf-receta-pasos {
+  grid-area: side2;
+  padding: 4.75rem 0;
+}
+.irf-section-receta .irf-receta-pasos .irf-receta-title {
+  font-family: "Barlow";
+  font-size: 2rem;
+  line-height: 39px;
+  font-weight: 900;
+  font-stretch: condensed;
+  margin-bottom: 0.375rem;
+}
+.irf-section-receta .irf-receta-pasos .irf-receta-subtitle {
+  margin-bottom: 3rem;
+}
+.irf-section-receta .irf-receta-pasos .irf-receta-ingredientes-title {
+  margin-bottom: 2rem;
+}
+.irf-section-receta .irf-receta-pasos .irf-receta-ingredientes-lista {
+  margin-bottom: 2rem;
+}
+.irf-section-receta .irf-receta-pasos .irf-receta-ingredientes-lista li {
+  margin-bottom: 0.625rem;
+  margin-top: 0.813rem;
+  border-top: 1px solid var(--irf-gray);
+}
+
+/* #endregion PRODUCTOS */
 
 /*# sourceMappingURL=style.css.map */

@@ -22,13 +22,13 @@ let carouselImage
 let carouselURL
 
 
-let carouselElements = new Array();
-let carouselIndex = 0;
+//let carouselElements = new Array();
+//let carouselIndex = 0;
 
 // Prueba
-carouselElements.push(new CarouselElement("../img/castillo.png", "San Antonio de Benagéver", "#"))
-carouselElements.push(new CarouselElement("../img/img1.png", "Una montaña", "#"))
-carouselElements.push(new CarouselElement("../img/img2.png", "Algo", "#"))
+//carouselElements.push(new CarouselElement("../img/castillo.png", "San Antonio de Benagéver", "#"))
+//carouselElements.push(new CarouselElement("../img/img1.png", "Una montaña", "#"))
+//carouselElements.push(new CarouselElement("../img/img2.png", "Algo", "#"))
 
 // Cuando se pulsa una dirección del botón se cambie de imagen
 

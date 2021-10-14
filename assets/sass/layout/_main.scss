@@ -160,13 +160,133 @@
         grid-template-areas: "title title title";
     }
 
+    .irf-section-2-sides {
+        padding-top: 5.438rem;
+        padding-bottom: 6.438rem;
+        grid-template-areas: 
+            "side1 side1 side1 side1 side1 . side2 side2 side2 side2 side2 .";
+
+        .irf-section-title {
+            grid-area: side1;
+            line-height: 91px;
+        }
+
+        .irf-section-title + .irf-description {
+            grid-area: side2;
+        }
+
+        .irf-description:first-child {
+            grid-area: side1;
+        }
+
+        .irf-description:nth-child(2) {
+            grid-area: side2;
+        }
+    }
+
     .irf-section-cuadrados {
         div {
             border-left: 1px solid var(--irf-gray);
             &:last-of-type { border-right: 1px solid var(--irf-gray); }
 
+            a {
+                display: block;
+                width: 100%;
+                height: 335px;
+                background-color: gray;
+                position: relative;
+
+                img {
+                    position: absolute;
+                    left: 0;
+                    transition: opacity .4s ease-in-out;
+
+                    &.irf-top-img:hover {
+                        opacity: 0;
+                    }
+
+                    &.irf-bottom-img {
+                        width: 200px;
+                        height: auto;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                    }
+                }
+            }
+
             img {
                 height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+
+    .irf-section-ruta {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0 var(--#{$prefix}-lateral-space);
+        border-bottom: 1px solid var(--irf-gray);
+        justify-items: stretch;
+        align-items: stretch;
+        width: 100%;
+        position: relative;
+
+        .irf-ruta-dia {
+            width: 50%;
+            border-left: 1px solid var(--irf-gray);
+            border-bottom: 1px solid var(--irf-gray);
+            padding: 5.75rem 0 7.125rem;
+
+            .irf-section-subtitle {
+                width: 27.125rem !important;
+                margin: 0 auto;
+            }
+
+            .irf-ruta-section {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                position: relative;
+
+                & > * { max-width: 27.125rem; width: 100%; }
+
+                img {
+                    height: auto;
+                    width: 100%;
+                    object-fit: contain;
+                    margin-bottom: .625rem;
+                }
+                .irf-ruta-section-title {
+                    font-family: 'Barlow';
+                    font-size: 3rem;
+                    line-height: 39px;
+                    font-weight: 900;
+                    font-stretch: condensed;
+                    margin-bottom: .875rem;
+                }
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 8.375rem;
+                    border-top: 1px solid var(--irf-gray);
+                }
+            }
+
+
+            & > *:not(:last-child) { margin-bottom: 5.75rem; }
+
+            &:nth-child(2n) {
+                border-right: 1px solid var(--irf-gray);
+            }
+
+            &:nth-last-child(1), &:nth-last-child(2) {
+                border-bottom: none;
             }
         }
     }
