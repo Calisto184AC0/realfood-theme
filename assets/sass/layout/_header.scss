@@ -121,3 +121,13 @@
         }
     }
 }
+
+@include mobile {
+    .irf-header {
+        .irf-header-wrap {
+            .irf-logo-2 {
+                display: none;
+            }
+        }
+    }
+}

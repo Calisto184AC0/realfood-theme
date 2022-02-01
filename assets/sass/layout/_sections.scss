@@ -15,9 +15,9 @@
         &:first-of-type { margin-left: calc(0px - var(--irf-lateral-space)); }
         &:last-of-type { margin-right: calc(0px - var(--irf-lateral-space)); }
 
-        //&:nth-of-type(1) { background-image: url('../img/pilar1.png'); }
-        //&:nth-of-type(2) { background-image: url('../img/pilar2.png'); }
-        //&:nth-of-type(3) { background-image: url('../img/pilar3.png'); }
+        // &:nth-of-type(1) { background-image: url('../img/pilar1.png'); }
+        // &:nth-of-type(2) { background-image: url('../img/pilar2.png'); }
+        // &:nth-of-type(3) { background-image: url('../img/pilar3.png'); }
 
         &:not(:last-child) { border-right: 1px solid var(--irf-gray); }
         
@@ -39,6 +39,56 @@
     }
 }
 
+@include mobile {
+    .irf-section-home-init {
+        height: auto;
+        grid-template-columns: 1fr !important;
+        grid-template-areas: 
+            "pilar1"
+            "pilar2"
+            "pilar3";
+        padding: 0 !important;
+
+        .irf-pilar {
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            border: 0px !important;
+            width: 100%;
+            background-position: center center;
+
+            &:nth-of-type(1) { grid-area: pilar1; }
+            &:nth-of-type(2) { grid-area: pilar2; }
+            &:nth-of-type(3) { grid-area: pilar3; }
+
+            h2 {
+                font-size: 3rem;
+            }
+        }
+    }
+
+    .irf-section-home-articulos-img {
+        display: none !important;
+    }
+
+    .irf-section-home-articulos-text {
+        padding: 0 !important;
+        img {
+            display: block !important;
+        }
+
+        .irf-articulo-text-container{
+            border-bottom: 1px solid var(--irf-gray);
+            padding: 1.875rem !important;
+        }
+    }
+
+    .irf-section-receta {
+        .irf-receta-pasos {
+            padding: 0 !important;
+        }
+    }
+}
+
 .irf-section-home-articulos-img {
     img, div {
         width: 100%;
@@ -50,6 +100,10 @@
 }
 
 .irf-section-home-articulos-text {
+    img {
+        display: none;
+    }
+
     .irf-articulo-text-container {
         border-left: 1px solid var(--irf-gray);
         padding: 1.875rem 1.875rem 7.188rem;
@@ -66,6 +120,17 @@
 
             a { color: var(--irf-black); }
         }
+    }
+}
+
+.irf-wrap-right {
+    .wp-video {
+        width: 100% !important;
+    }
+
+    .wp-video-shortcode {
+        width: 100% !important;
+        height: 100% !important;
     }
 }
 
@@ -93,17 +158,46 @@
         }
 
         .irf-receta-subtitle { margin-bottom: 3rem; }
-        .irf-receta-ingredientes-title { margin-bottom: 2rem; }
+        .irf-receta-ingredientes-title { margin-bottom: 1rem; }
         .irf-receta-ingredientes-lista  {
-            margin-bottom: 2rem;
+            margin-bottom: 2.3rem;
 
             li {
-                margin-bottom: .625rem;
-                margin-top: .813rem;
+                padding-bottom: .625rem;
+                padding-top: .813rem;
                 border-top: 1px solid var(--irf-gray);
             }
         }
     }
+}
+
+.irf-nutricion {
+    .irf-receta-ingredientes-title { margin-bottom: 1rem; }
+        .irf-receta-ingredientes-lista  {
+            margin-bottom: 2.3rem;
+
+            li {
+                font-size: 1rem;
+                padding-bottom: .625rem;
+                padding-top: .813rem;
+                border-top: 1px solid var(--irf-gray);
+            }
+        }
+        .irf-tabla-nutricional {
+            margin-bottom: 2.3rem;
+
+            li {
+                font-size: 1rem;
+                padding-bottom: .625rem;
+                padding-top: .813rem;
+                border-top: 1px solid var(--irf-gray);
+                display: flex;
+
+                span {
+                    width: 100%;
+                }
+            }
+        }
 }
 
 /* #endregion PRODUCTOS */

@@ -8,6 +8,12 @@ $init: (
     header-height: 8.75rem
 );
 
+$init-mobile: (
+    lateral-space: 32px, // para las columnas
+    column-gap: 16px,
+    header-height: 8.75rem
+);
+
 $dot-colors: ('l-blue', 'green', 'yellow', 'orange', 'red', 'garnet');
 
 /* #endregion Init */

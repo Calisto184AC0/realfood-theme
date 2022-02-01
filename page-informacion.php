@@ -4,14 +4,7 @@
     <?php if( have_rows('contenido') ): ?>
         <?php while( have_rows('contenido') ): the_row(); ?>
 
-            <?php if (get_row_layout() == 'inicio_init') : ?>
-                <section class="irf-section-3 irf-section-home-init">
-                <?php while( have_rows('pilares') ): the_row(); $id_post = get_sub_field('pilar'); ?>
-                    <a href="<?php echo get_permalink($id_post); ?>" style="background-image: url(<?php echo get_the_post_thumbnail_url($id_post); ?>)" class="irf-pilar"><h2><?php echo get_the_title($id_post); ?></h2></a>
-                <?php endwhile; ?>
-                </section>
-
-            <?php elseif (get_row_layout() == 'inicio_articulos') : ?>
+            <?php if (get_row_layout() == 'inicio_articulos') : ?>
                 <section class="irf-section-3 irf-section-titulo">
                     <h1 class="irf-section-subtitle"><?php the_sub_field('titulo'); ?></h1>
                 </section>
@@ -20,7 +13,7 @@
                     $query = new WP_Query(array(
                         'category_name'     => 'blog',
                         'post_status' => 'publish',
-                        'posts_per_page'    => 6        // Se puede seleccionar el número de páginas desde el ACF
+                        'posts_per_page'    => -1        // Se puede seleccionar el número de páginas desde el ACF
                     ));
 
                     $query_posts = $query->get_posts();

@@ -175,3 +175,54 @@
     }
     
 }
+
+@include mobile {
+    .irf-footer {
+        .irf-footer-links {
+            padding-top: 4rem !important;
+            padding-bottom: 4rem !important;
+
+            grid-template-areas: 
+                "links"
+                "news"
+                "info"
+                "rrss";
+            
+            .irf-footer-menu {
+                gap: 1rem;
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        .irf-footer-more-info {
+            grid-template-areas: 
+                "legal"
+                "by";
+            row-gap: 0.7rem;
+            padding-bottom: 1.875rem !important;
+            
+            .irf-footer-legal {
+                flex-direction: column;
+                gap: 0.7rem;
+            }
+        }
+
+        .irf-footer-cta-container {
+            grid-template-areas: 
+                "cta"
+                "img" !important;
+
+            .irf-footer-cta {
+                h2 {
+                    line-height: 42px;
+                    font-size: 2.3rem;
+                }
+
+                a {
+                    margin-bottom: 3.75rem;
+                }
+            }
+        }
+    }
+}

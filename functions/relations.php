@@ -7,14 +7,15 @@ function irf_create_relation_table() {
     require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
 
     $table_name = $wpdb->prefix . 'relations';
+    $table_post = $wpdb->prefix . 'posts';
     $sql = "CREATE TABLE IF NOT EXISTS $table_name (
         idTerritorio bigint(20) unsigned NOT NULL,
         idComunidad bigint(20) unsigned NOT NULL,
         idProducto bigint(20) unsigned NOT NULL,
-        PRIMARY KEY (idTerritorio, idComunidad, idProducto),
-        FOREIGN KEY (idTerritorio) REFERENCES wp_posts(ID) ON DELETE CASCADE ON UPDATE CASCADE,
-        FOREIGN KEY (idComunidad) REFERENCES wp_posts(ID) ON DELETE CASCADE ON UPDATE CASCADE,
-        FOREIGN KEY (idProducto) REFERENCES wp_posts(ID) ON DELETE CASCADE ON UPDATE CASCADE
+        PRIMARY KEY (idProducto, idTerritorio, idComunidad),
+        FOREIGN KEY (idTerritorio) REFERENCES $table_post(ID) ON DELETE CASCADE ON UPDATE CASCADE,
+        FOREIGN KEY (idComunidad) REFERENCES $table_post(ID) ON DELETE CASCADE ON UPDATE CASCADE,
+        FOREIGN KEY (idProducto) REFERENCES $table_post(ID) ON DELETE CASCADE ON UPDATE CASCADE
     ) CHARACTER SET utf8 COLLATE utf8_general_ci;";
 
     dbDelta($sql);
@@ -42,6 +43,20 @@ if (!empty($_POST['territorio'])) {
             'idTerritorio' => $_POST['territorio'],
             'idComunidad' => $_POST['comunidad'],
             'idProducto' => $_POST['producto']
+        )
+    );
+}
+
+if (!empty($_POST['del_territorio'])) {
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'relations';
+
+    $wpdb->delete(
+        $table_name,
+        array(
+            'idTerritorio' => $_POST['del_territorio'],
+            'idComunidad' => $_POST['del_comunidad'],
+            'idProducto' => $_POST['del_producto']
         )
     );
 }
@@ -88,17 +103,26 @@ function irf_render_settings_page () {
         </select>
         <?php submit_button(); ?> 
     </form>
-    <table>
+    <table style="border: 1px solid black;border-collapse: collapse;">
         <tr>
-            <th>Territorio</th>
-            <th>Comunidad</th>
-            <th>Porducto</th>
+            <th style="border: 1px solid black;">Territorio</th>
+            <th style="border: 1px solid black;">Comunidad</th>
+            <th style="border: 1px solid black;">Producto</th>
+            <th style="border: 1px solid black;"></th>
         </tr>
         <?php foreach ($filas as $fila) :?>
             <tr>
-                <td><?php echo get_the_title($fila->idTerritorio); ?></td>
-                <td><?php echo get_the_title($fila->idComunidad); ?></td>
-                <td><?php echo get_the_title($fila->idProducto); ?></td>
+                <td style="border: 1px solid black;padding: 1rem;"><?php echo get_the_title($fila->idTerritorio); ?></td>
+                <td style="border: 1px solid black;padding: 1rem;"><?php echo get_the_title($fila->idComunidad); ?></td>
+                <td style="border: 1px solid black;padding: 1rem;"><?php echo get_the_title($fila->idProducto); ?></td>
+                <td style="border: 1px solid black;padding: 1rem;">
+                    <form action="" method="post">
+                        <input type="hidden" name="del_territorio" value="<?php echo $fila->idTerritorio ?>">
+                        <input type="hidden" name="del_comunidad" value="<?php echo $fila->idComunidad ?>">
+                        <input type="hidden" name="del_producto" value="<?php echo $fila->idProducto ?>">
+                        <input type="submit" value="Eliminar relación">
+                    </form>
+                </td>
             </tr>
         <?php endforeach; ?>
     </table>

@@ -11,3 +11,11 @@
         --#{$prefix}-#{'' + $key}: #{$value};
     }
 }
+
+@include mobile {
+    :root {
+        @each $key, $value in $init-mobile {
+            --#{$prefix}-#{'' + $key}: #{$value};
+        }
+    }
+}
